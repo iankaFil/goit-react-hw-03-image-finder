@@ -4,6 +4,7 @@ import Button from 'components/Button';
 import Modal from 'components/Modal';
 import ImageGallery from 'components/ImageGallery';
 // import Loader from 'components/Loader';
+import { ColorRing } from 'react-loader-spinner';
 import axios from 'axios';
 import css from './app.module.css';
 
@@ -112,8 +113,17 @@ class App extends Component {
             id={this.state.images.id}
           />
         )}
-
-        {/* <Loader /> */}
+        {this.state.isLoading && (
+          <ColorRing
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="blocks-loading"
+            wrapperStyle={{}}
+            wrapperClass="blocks-wrapper"
+            colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+          />
+        )}
         {this.state.totalPages > 1 &&
           this.state.page < this.state.totalPages && (
             <Button getMoreImage={this.fetchMoreImages} />
