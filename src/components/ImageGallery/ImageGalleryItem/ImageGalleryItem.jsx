@@ -1,5 +1,5 @@
 import { Component } from 'react';
-// import { PropTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
 import css from './imageGalleryItem.module.css';
 
 class ImageGalleryItem extends Component {
@@ -19,5 +19,14 @@ class ImageGalleryItem extends Component {
     );
   }
 }
+
+ImageGalleryItem.propTypes = {
+  image: PropTypes.shape({
+    webformatURL: PropTypes.string.isRequired,
+    largeImageURL: PropTypes.string.isRequired,
+    tags: PropTypes.string.isRequired,
+  }).isRequired,
+  onImgClick: PropTypes.func.isRequired,
+};
 
 export default ImageGalleryItem;

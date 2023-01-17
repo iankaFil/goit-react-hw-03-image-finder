@@ -1,5 +1,5 @@
 import { Component } from 'react';
-// import { PropTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
 import css from './button.module.css';
 
 class Button extends Component {
@@ -11,5 +11,8 @@ class Button extends Component {
     );
   }
 }
+Button.propTypes = {
+  getMoreImage: PropTypes.func.isRequired,
+};
 
 export default Button;
